@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.page {
+  background: #0c0c0c;
+  min-height: 100vh;
+}
+
+// ─── Overlay ─────────────────────────────────────────────────────────
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ece8e1;
+}
+
+// ─── Nav ─────────────────────────────────────────────────────────────
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.25rem 1.5rem;
+  pointer-events: auto;
+}
+
+.brand {
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  font-weight: 400;
+}
+
+.navRight {
+  display: flex;
+  gap: 2rem;
+  font-family: var(--font-family);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 300;
+  opacity: 0.4;
+
+  span {
+    cursor: pointer;
+    transition: opacity 0.25s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// ─── Floating metadata labels ────────────────────────────────────────
+.floatLabel {
+  position: absolute;
+  top: 4.5rem;
+  right: 1.5rem;
+  font-family: var(--third-family);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.25;
+  writing-mode: vertical-lr;
+}
+
+.floatIndex {
+  position: absolute;
+  top: 5rem;
+  left: 1.5rem;
+  font-family: var(--third-family);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  opacity: 0.2;
+}
+
+// ─── Bottom content zone ─────────────────────────────────────────────
+.bottom {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.rule {
+  display: none;
+}
+
+.bottomInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+// ─── Title block (left) ──────────────────────────────────────────────
+.titleBlock {
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: "Bebas Neue", var(--font-family), sans-serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  margin: 0;
+  // Let it push against the edge
+  margin-left: -0.04em;
+}
+
+.titleMeta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--third-family);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+
+// ─── Copy block (right, sits higher) ─────────────────────────────────
+.copyBlock {
+  flex-shrink: 0;
+  margin-bottom: 2.5rem; // lifts it above the title baseline
+  max-width: 18rem;
+  text-align: right;
+}
+
+.copy {
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  font-weight: 300;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.copyMeta {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-family: var(--third-family);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.2;
+}
+
+// ─── Progress bar ────────────────────────────────────────────────────
+.progressTrack {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 11;
+  background: rgba(236, 232, 225, 0.06);
+}
+
+.progressFill {
+  height: 100%;
+  background: rgba(236, 232, 225, 0.35);
+  transform-origin: left;
+  will-change: transform;
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.25rem;
+  }
+
+  .bottom {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .copyBlock {
+    margin-bottom: 1rem;
+    max-width: 12rem;
+  }
+
+  .copy {
+    font-size: 0.65rem;
+  }
+
+  .floatLabel {
+    display: none;
+  }
+
+  .rule {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .copyBlock {
+    display: none;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 16vw, 4rem);
+  }
+
+  .floatIndex {
+    display: none;
+  }
+}
