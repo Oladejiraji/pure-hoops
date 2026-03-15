@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+// — CUSTOM CURSOR —
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.25s ease;
+}
+
+.cursorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.cursorLabel {
+  font-family: var(--font-family);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+// — NAV —
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  pointer-events: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.navBrand {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+}
+
+.brandBase {
+  display: inline-block;
+}
+
+.brandReveal {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+
+  .navBrand:hover & {
+    max-width: 5em;
+  }
+}
+
+.navLinks {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+
+.navLink {
+  font-family: var(--font-family);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  height: 1.4em;
+}
+
+.navLinkText,
+.navLinkClone {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.navLinkClone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.navLink:hover .navLinkText {
+  transform: translateY(-100%);
+}
+
+.navLink:hover .navLinkClone {
+  transform: translateY(-100%);
+}
+
+// — TITLE BLOCK — top right area —
+.titleBlock {
+  position: absolute;
+  top: 140px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  max-width: 480px;
+}
+
+.titleRow {
+  overflow: hidden;
+}
+
+.title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.productionCopy {
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #fff;
+  max-width: 280px;
+  min-height: 4.8em;
+  text-align: right;
+}
+
+.productionMeta {
+  display: flex;
+  gap: 32px;
+}
+
+.productionMetaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  min-width: 120px;
+}
+
+// — BOTTOM CONTENT —
+.bottom {
+  padding: 0 24px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+  align-items: end;
+}
+
+// — LEFT: index display —
+.left {
+  padding-bottom: 4px;
+}
+
+.bottomMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.indexDisplay {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #fff;
+  display: block;
+}
+
+.indexTotal {
+  font-family: var(--font-family);
+  font-size: 0.65rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+// — RIGHT: metadata row —
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  padding-bottom: 4px;
+}
+
+.rule {
+  width: 100%;
+  max-width: 360px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  gap: 36px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  min-width: 100px;
+}
+
+.metaLabel {
+  font-family: var(--font-family);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.metaValue {
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  display: block;
+}
+
+.metaValueClip {
+  overflow: hidden;
+  position: relative;
+}
+
+// — SCATTERED LABELS —
+.scatterLabel {
+  position: absolute;
+  font-family: var(--font-family);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.labelMidLeft {
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
