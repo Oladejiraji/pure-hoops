@@ -1,0 +1,255 @@
+.showcase {
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+// ─── Overlay (fixed, layered above canvas) ───────────────────────────
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  color: #e8e4e0;
+}
+
+// ─── Header ──────────────────────────────────────────────────────────
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.logoMark {
+  font-family: var(--third-family);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  border: 1px solid rgba(232, 228, 224, 0.3);
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  letter-spacing: 0.35em;
+  font-weight: 300;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  font-family: var(--third-family);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+
+  span {
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// ─── Center content (3-column layout around the carousel) ────────────
+.centerContent {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 2rem 0;
+}
+
+.leftCol {
+  width: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.verticalLabel {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  font-family: var(--third-family);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+.carouselWindow {
+  flex: 1;
+  // Transparent — the carousel shows through here
+  position: relative;
+
+  // Subtle corner brackets framing the carousel
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-color: rgba(232, 228, 224, 0.15);
+    border-style: solid;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+  }
+}
+
+.rightCol {
+  width: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2rem;
+  flex-shrink: 0;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin-top: 4rem;
+}
+
+.descriptionMuted {
+  opacity: 0.4;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+.indexLabel {
+  margin-bottom: 2rem;
+}
+
+// ─── Footer ──────────────────────────────────────────────────────────
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.divider {
+  width: 2rem;
+  height: 1px;
+  background: rgba(232, 228, 224, 0.25);
+}
+
+.scrollIndicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scrollLine {
+  width: 3rem;
+  height: 1px;
+  background: rgba(232, 228, 224, 0.4);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    border-right: 1px solid rgba(232, 228, 224, 0.4);
+    border-bottom: 1px solid rgba(232, 228, 224, 0.4);
+    transform: rotate(-45deg);
+  }
+}
+
+// ─── Shared ──────────────────────────────────────────────────────────
+.mono {
+  font-family: var(--third-family);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1.5rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .leftCol {
+    display: none;
+  }
+
+  .rightCol {
+    width: 8rem;
+    padding-left: 1rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+    margin-top: 2rem;
+  }
+
+  .carouselWindow {
+    &::before,
+    &::after {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .rightCol {
+    display: none;
+  }
+
+  .footerLeft {
+    .mono:last-child {
+      display: none;
+    }
+
+    .divider {
+      display: none;
+    }
+  }
+}
