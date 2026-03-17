@@ -26,7 +26,8 @@
     "react-dom": "^18",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.169.0"
+    "three": "^0.169.0",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
