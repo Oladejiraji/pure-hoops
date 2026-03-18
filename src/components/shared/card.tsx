@@ -5,9 +5,8 @@ import { Vector2 } from "three";
 import fragmentShader from "../../shaders/fragment.glsl";
 import vertexShader from "../../shaders/vertex.glsl";
 
-const CardMaterial = shaderMaterial(
+const CardHorizontalMaterial = shaderMaterial(
   {
-    uTime: 0,
     uIntensity: 0,
     uCurveDistance: 0,
     uTexture: null,
@@ -19,7 +18,7 @@ const CardMaterial = shaderMaterial(
   fragmentShader
 );
 
-extend({ CardMaterial });
+extend({ CardHorizontalMaterial });
 
 interface IProps {
   index: number;
@@ -35,16 +34,17 @@ export const Card = forwardRef<any, IProps>((props, ref) => {
     <mesh key={index} position-x={positionX} position-y={positionY}>
       <planeGeometry args={[1, 1.2, 32, 32]} />
       {/* @ts-ignore */}
-      <cardMaterial
+      <cardHorizontalMaterial
         ref={ref}
         wireframe={false}
         uTexture={texture}
         uImageRes={
           new Vector2(texture.source.data.width, texture.source.data.height)
         }
-        uIntensity={2.5}
         uPlaneSize={new Vector2(1, 1.2)}
+        uIntensity={2.5}
       />
+
     </mesh>
   );
 });
