@@ -15,12 +15,12 @@ const AVATAR_COLORS = ["#8b7355", "#6b5b45", "#a89070", "#554535"];
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between pt-6 px-10">
+    <nav className="fixed top-0 left-0 right-0 z-20 grid grid-cols-3 items-center pt-6 px-10">
       <div className="text-[#111] text-xl font-bold tracking-tight">
         umbral<span className="text-[#111]/40">.</span>
       </div>
 
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center justify-center gap-8">
         {NAV_LINKS.map((link) => (
           <a
             key={link}
@@ -32,7 +32,7 @@ function Navbar() {
         ))}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-end gap-3">
         <button className="text-sm font-medium text-[#111]/70 px-4 py-2 rounded-full border border-[#111]/20 hover:border-[#111]/40 transition-colors">
           Sign in
         </button>
@@ -66,7 +66,7 @@ function SocialProof() {
 function HeroContent() {
   return (
     <div className="fixed inset-0 z-10 pointer-events-none">
-      <div className="flex flex-col items-center justify-start pt-[12vh] h-[40vh]">
+      <div className="flex flex-col items-center justify-start pt-[12vh] h-[50vh]">
         <SocialProof />
 
         <h1
@@ -77,7 +77,8 @@ function HeroContent() {
             letterSpacing: "-0.02em",
           }}
         >
-          Motion.<br />
+          Motion.
+          <br />
           Captured.
         </h1>
 
@@ -85,7 +86,7 @@ function HeroContent() {
           Real-time 3D experiences that move with intention
         </p>
 
-        <button className="pointer-events-auto mt-7 text-sm font-medium text-white bg-[#0f0f0f] h-12 px-10 rounded-full hover:bg-[#0f0f0f]/90 transition-colors">
+        <button className="pointer-events-auto mt-7 text-sm font-medium text-white bg-[#0f0f0f] h-10 px-10 rounded-full hover:bg-[#0f0f0f]/90 transition-colors">
           Get Started
         </button>
       </div>
